@@ -1,1 +1,5 @@
 site_name: My Docs
+nav: 
+  - welcome: index.md
+theme: material
+
