@@ -2,5 +2,6 @@ site_name: My Docs
 nav: 
   - welcome: index.md
   - sdk: sdkconfigration.md
+  - coin: coin&address.md
 theme: material
 
