@@ -3,5 +3,6 @@ nav:
   - welcome: index.md
   - sdk: sdkconfigration.md
   - coin: coin&address.md
+  - npm-packages: npm-packages.md
 theme: material
 
