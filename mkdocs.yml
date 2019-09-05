@@ -5,5 +5,7 @@ nav:
   - coin: coin&address.md
   - Setup-Kubernetes: Setup-Kubernetes.md
   - npm-packages: npm-packages.md
+  - explorer-k8s-deployment: explorer-k8s-deployment.md
+  - nginx.deployment.k8s: nginx.deployment.k8s.md
 theme: material
 
