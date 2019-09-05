@@ -392,6 +392,10 @@ helmdel() {
 <p>kops get secrets kube --type secret -oplaintext</p>
 <p>to get token 
 kops get secrets admin --type secret -oplaintext</p>
+<h2 id="to-use-kubectl-in-insecure-mod">To use kubectl in insecure mod</h2>
+<pre><code>kubectl --insecure-skip-tls-verify --context=colors.k8s.local get nodes
+
+</code></pre>
                 
                   
                 
