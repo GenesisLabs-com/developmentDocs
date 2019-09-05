@@ -202,3 +202,11 @@ kops get secrets kube --type secret -oplaintext
 
 to get token 
 kops get secrets admin --type secret -oplaintext
+
+
+## To use kubectl in insecure mod
+
+```
+kubectl --insecure-skip-tls-verify --context=colors.k8s.local get nodes
+
+```
