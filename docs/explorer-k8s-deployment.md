@@ -42,3 +42,15 @@ environment variable
    export MONGO_URL='mongodb://admin123:admin123@ds359077.mlab.com:59077/colorplatform'
    export ROOT_URL='localhost'
 ```
+
+## To build docker file
+
+```
+docker run -d \
+  -e ROOT_URL=http://localhost/ \
+  -e MONGO_URL='mongodb://admin123:admin123@ds359077.mlab.com:59077/colorplatform' \
+  -e METEOR_SETTINGS="$(cat settings.json)" \
+  -p 80:3000 \
+  rnssolution/explorer
+  
+```

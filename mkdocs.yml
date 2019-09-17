@@ -7,5 +7,6 @@ nav:
   - npm-packages: npm-packages.md
   - explorer-k8s-deployment: explorer-k8s-deployment.md
   - nginx.deployment.k8s: nginx.deployment.k8s.md
+  - color-wallet: color-wallet.md
 theme: material
 
