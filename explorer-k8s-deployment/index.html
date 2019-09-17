@@ -277,6 +277,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#to-build-docker-file" title="To build docker file" class="md-nav__link">
+    To build docker file
+  </a>
+  
+</li>
+      
       
       
       
@@ -296,6 +303,18 @@
   <li class="md-nav__item">
     <a href="../nginx.deployment.k8s/" title="nginx.deployment.k8s" class="md-nav__link">
       nginx.deployment.k8s
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../color-wallet/" title="color-wallet" class="md-nav__link">
+      color-wallet
     </a>
   </li>
 
@@ -337,6 +356,13 @@
         <li class="md-nav__item">
   <a href="#to-build-explore-in-production" title="To build explore in production" class="md-nav__link">
     To build explore in production
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to-build-docker-file" title="To build docker file" class="md-nav__link">
+    To build docker file
   </a>
   
 </li>
@@ -386,6 +412,16 @@
 <p>environment variable </p>
 <pre><code>   export MONGO_URL='mongodb://admin123:admin123@ds359077.mlab.com:59077/colorplatform'
    export ROOT_URL='localhost'
+</code></pre>
+
+<h2 id="to-build-docker-file">To build docker file</h2>
+<pre><code>docker run -d \
+  -e ROOT_URL=http://localhost/ \
+  -e MONGO_URL='mongodb://admin123:admin123@ds359077.mlab.com:59077/colorplatform' \
+  -e METEOR_SETTINGS=&quot;$(cat settings.json)&quot; \
+  -p 80:3000 \
+  rnssolution/explorer
+
 </code></pre>
                 
                   

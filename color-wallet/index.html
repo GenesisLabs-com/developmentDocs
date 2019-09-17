@@ -36,7 +36,7 @@
     
     
       
-        <title>sdk - My Docs</title>
+        <title>color-wallet - My Docs</title>
       
     
     
@@ -75,7 +75,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#sdk-configuration" tabindex="1" class="md-skip">
+      <a href="#color-wallet" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -101,7 +101,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                sdk
+                color-wallet
               
             </span>
           
@@ -180,63 +180,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        sdk
-      </label>
-    
-    <a href="./" title="sdk" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../sdkconfigration/" title="sdk" class="md-nav__link">
       sdk
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cloning-the-repository" title="Cloning the repository" class="md-nav__link">
-    Cloning the repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updating-the-mod-file" title="Updating the mod file" class="md-nav__link">
-    Updating the mod file
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#making-changes-in-sdk-project" title="Making changes in sdk project" class="md-nav__link">
-    Making changes in sdk project
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -304,11 +252,49 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../color-wallet/" title="color-wallet" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        color-wallet
+      </label>
+    
+    <a href="./" title="color-wallet" class="md-nav__link md-nav__link--active">
       color-wallet
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#to-build-new-image-to-color-wallet" title="To build new image to color wallet" class="md-nav__link">
+    To build new image to color wallet
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -333,22 +319,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cloning-the-repository" title="Cloning the repository" class="md-nav__link">
-    Cloning the repository
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updating-the-mod-file" title="Updating the mod file" class="md-nav__link">
-    Updating the mod file
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#making-changes-in-sdk-project" title="Making changes in sdk project" class="md-nav__link">
-    Making changes in sdk project
+  <a href="#to-build-new-image-to-color-wallet" title="To build new image to color wallet" class="md-nav__link">
+    To build new image to color wallet
   </a>
   
 </li>
@@ -370,40 +342,10 @@
               
                 
                 
-                <h1 id="sdk-configuration">SDK CONFIGURATION</h1>
-<h2 id="cloning-the-repository">Cloning the repository</h2>
-<p>To configure cosmos sdk perform the following steps.</p>
-<ul>
-<li>Fork the repository form the main sdk repository
-   <code>[https://github.com/cosmos/cosmos-sdk](https://github.com/cosmos/cosmos-sdk)</code></li>
-<li>Change the name to colors sdk of the repository using settings in github</li>
-</ul>
-<h2 id="updating-the-mod-file">Updating the mod file</h2>
-<p>Mod file in project ensure the version management. To reconfigure the mod file perform the following steps.</p>
-<ul>
-<li>To inside the colors project directory and open terminal here, run the following commands
-  <code>go mod edit -replace github.com/cosmos/cosmos-sdk =&gt; github.com/RNSSolution/cosmos-sdk v0.28.2-0.20190622092459-7b5e6cee0787</code></li>
-</ul>
-<p>make sure the commit number and version number in go mod edit</p>
-<ul>
-<li>make the project 
-  <code>make install</code></li>
-</ul>
-<h2 id="making-changes-in-sdk-project">Making changes in sdk project</h2>
-<ul>
-<li>Checkout the version you specfied in go mod edit.</li>
-<li>pull the following command to add tag
-  <code>git tag v0.28.3</code></li>
-<li>
-<p>Push new changes to github</p>
-</li>
-<li>
-<p>get time stamp of git commit
-  <code>git show --no-patch --no-notes --pretty='%cd' [place commit hash here]</code></p>
-</li>
-<li>replace the time stamp and git hash in go mod file by building hte following file
-  <code>v0.28.2-0.20190622092459-7b5e6cee078</code></li>
-</ul>
+                <h1 id="color-wallet">Color Wallet</h1>
+<h2 id="to-build-new-image-to-color-wallet">To build new image to color wallet</h2>
+<pre><code>docker run  -v /home/faisalnaveed/goApps/src/github.com/RNSSolution/start.sh:/usr/src/app/start.sh -p 9080:9080 -d rnssolutions/colorwallet:v0.3
+</code></pre>
                 
                   
                 
@@ -424,7 +366,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="welcome" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../nginx.deployment.k8s/" title="nginx.deployment.k8s" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -433,25 +375,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                welcome
+                nginx.deployment.k8s
               </span>
             </div>
           </a>
         
-        
-          <a href="../coin&address/" title="coin" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                coin
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
