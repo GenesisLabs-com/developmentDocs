@@ -8,5 +8,7 @@ nav:
   - explorer-k8s-deployment: explorer-k8s-deployment.md
   - nginx.deployment.k8s: nginx.deployment.k8s.md
   - color-wallet: color-wallet.md
+  - docker-healthcheck: docker-healthcheck.md
+  - meteor: meteor.md
 theme: material
 
