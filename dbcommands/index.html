@@ -36,7 +36,7 @@
     
     
       
-        <title>explorer-k8s-deployment - My Docs</title>
+        <title>Add User in MongoDB - My Docs</title>
       
     
     
@@ -75,7 +75,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#deployment-of-explorer-on-k8s" tabindex="1" class="md-skip">
+      <a href="#add-user-in-mongodb" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -101,7 +101,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                explorer-k8s-deployment
+                Add User in MongoDB
               
             </span>
           
@@ -228,70 +228,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        explorer-k8s-deployment
-      </label>
-    
-    <a href="./" title="explorer-k8s-deployment" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../explorer-k8s-deployment/" title="explorer-k8s-deployment" class="md-nav__link">
       explorer-k8s-deployment
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-secrets" title="create secrets" class="md-nav__link">
-    create secrets
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-deployment-of-explorer-production" title="Docker Deployment of explorer Production" class="md-nav__link">
-    Docker Deployment of explorer Production
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#to-build-explore-in-production" title="To build explore in production" class="md-nav__link">
-    To build explore in production
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#to-build-docker-file" title="To build docker file" class="md-nav__link">
-    To build docker file
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -360,43 +301,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-secrets" title="create secrets" class="md-nav__link">
-    create secrets
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-deployment-of-explorer-production" title="Docker Deployment of explorer Production" class="md-nav__link">
-    Docker Deployment of explorer Production
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#to-build-explore-in-production" title="To build explore in production" class="md-nav__link">
-    To build explore in production
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#to-build-docker-file" title="To build docker file" class="md-nav__link">
-    To build docker file
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -408,44 +312,19 @@
               
                 
                 
-                <h1 id="deployment-of-explorer-on-k8s">Deployment of explorer on k8s</h1>
-<h2 id="create-secrets">create secrets</h2>
-<p>To pass environnement variables to explorer container we have to pass secrets to k8s.</p>
-<p>run this command</p>
-<pre><code>kubectl create secret generic explorer-settings --from-file=./settings.json --insecure-skip-tls-verify
+                <h1 id="add-user-in-mongodb">Add User in MongoDB</h1>
+<p>After Writing Mongo and press enter, you have to write that command</p>
+<pre><code>db.createUser(
+   {
+      user: &quot;rnssol&quot;,
+      pwd: &quot;rnssol&quot;,
+      roles: [ { role: &quot;readWrite&quot;, db: &quot;colorplatform&quot; } ]
+   }
+);
 </code></pre>
 
-<p>Secrets of mongodb url and root rrl are added in yaml file. For this run following command</p>
-<pre><code>kubectl apply -f ./secrets.yaml --insecure-skip-tls-verify
-</code></pre>
-
-<p>to start deployment run following commands</p>
-<pre><code>kubectl delete -f recipes/explorer.yaml --insecure-skip-tls-verify
-</code></pre>
-
-<h2 id="docker-deployment-of-explorer-production">Docker Deployment of explorer Production</h2>
-<pre><code>docker run -d   -e ROOT_URL=http://localhost/   -e MONGO_URL='mongodb://admin123:admin123@ds359077.mlab.com:59077/colorplatform'   -e METEOR_SETTINGS=&quot;$(cat settings.json)&quot;   -p 80:3000   rnssolutions/explorer:release1
-
-</code></pre>
-
-<h2 id="to-build-explore-in-production">To build explore in production</h2>
-<p>following site is reference</p>
-<pre><code>https://github.com/jshimko/meteor-launchpad
-</code></pre>
-
-<p>environment variable </p>
-<pre><code>   export MONGO_URL='mongodb://admin123:admin123@ds359077.mlab.com:59077/colorplatform'
-   export ROOT_URL='localhost'
-</code></pre>
-
-<h2 id="to-build-docker-file">To build docker file</h2>
-<pre><code>docker run -d \
-  -e ROOT_URL=http://localhost/ \
-  -e MONGO_URL='mongodb://admin123:admin123@ds359077.mlab.com:59077/colorplatform' \
-  -e METEOR_SETTINGS=&quot;$(cat settings.json)&quot; \
-  -p 80:3000 \
-  rnssolution/explorer
-
+<p>From Database To database and then server name. You can add more parameters in case of security check 'ON'</p>
+<pre><code>db.copyDatabase(&quot;DATABASENAME&quot;, &quot;DATABASENAME&quot;, &quot;localhost:27018&quot;)
 </code></pre>
                 
                   
@@ -463,41 +342,6 @@
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../npm-packages/" title="npm-packages" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                npm-packages
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../nginx.deployment.k8s/" title="nginx.deployment.k8s" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                nginx.deployment.k8s
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
